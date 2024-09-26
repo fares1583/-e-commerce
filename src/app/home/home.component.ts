@@ -36,7 +36,7 @@ export class HomeComponent {
   constructor() {
     this.productService.products().subscribe({
       next: (response) => {
-        this.products = response.products;
+        this.products = response;
       },
     });
   }

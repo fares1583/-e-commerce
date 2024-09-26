@@ -15,6 +15,8 @@ export class ProductsDetailsComponent {
   private productService = inject(ProductsService);
   public productDetails: any;
   private route = inject(ActivatedRoute);
+  
+  public errMessage = '';
 
   constructor() {
     const id = this.route.snapshot.paramMap.get('id');
@@ -23,6 +25,9 @@ export class ProductsDetailsComponent {
         next: (response) => {
           this.productDetails = response;
         },
+        error: err=>{
+          this.errMessage = id+' item not found';
+        }
       });
     }
   }

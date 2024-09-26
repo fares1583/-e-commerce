@@ -44,14 +44,7 @@ export class AdminComponent {
   activeIndex = 0;
 
   ngOnInit() {
-    this.productService.products().subscribe({
-      next: (response) => {
-        this.productsContext = {
-          ...this.productsContext,
-          $implicit: response.products,
-        };
-      },
-    });
+    this.loadProducts();
 
     this.categoriesService
       .categories()
@@ -86,6 +79,17 @@ export class AdminComponent {
     });
   }
 
+  private loadProducts() {
+    this.productService.products().subscribe({
+      next: (response) => {
+        this.productsContext = {
+          ...this.productsContext,
+          $implicit: response,
+        };
+      },
+    });
+  }
+
   // add(row: any) {
   //   console.log(this.activeIndex);
   // }
@@ -98,6 +102,8 @@ export class AdminComponent {
     if (this.activeIndex === 0) { // Products tab
       const newProduct = {
         title: 'New Product',
+        category: 'New category',
+        description: 'New description'
         // Add other required fields here
       };
       this.productService.addProduct(newProduct).subscribe({
@@ -127,9 +133,6 @@ export class AdminComponent {
     }
     // Add logic for other tabs if needed
   }
-  loadProducts() {
-    throw new Error('Method not implemented.');
-  }
 
   remove(row: any) {
     if (this.activeIndex === 0) { // Products tab
@@ -143,4 +146,5 @@ export class AdminComponent {
     }
     // Add logic for other tabs if needed
   }
+
 }

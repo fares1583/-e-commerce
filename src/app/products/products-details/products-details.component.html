@@ -1,7 +1,12 @@
-<ng-container *ngIf="productDetails">
+<ng-container *ngIf="productDetails else errorTpl">
   <div class="card flex justify-content-center">
     <p-card [header]="productDetails.title | titlecase">
-      <p class="m-0">{{ productDetails.description }}</p>
+      <p class="m-0">Id: {{ productDetails.id }}</p>
+      <p class="m-0">Title: {{ productDetails.title }}</p>
+      <p class="m-0">Description: {{ productDetails.description }}</p>
     </p-card>
   </div>
 </ng-container>
+<ng-template #errorTpl>
+  <b style="color:red">{{errMessage}}</b>
+</ng-template>
