@@ -1,0 +1,10 @@
+<ng-container *ngIf="categoryDetails">
+  <div *ngFor="let product of categoryDetails">
+    <div class="card flex justify-content-center">
+      <p-card [header]="product.title | titlecase">
+        <!-- <p class="m-0">{{ category.description }}</p> -->
+      </p-card>
+    </div>
+  </div>
+</ng-container>
+<!-- [routerLink]="['/categories', categoryDetails]" -->

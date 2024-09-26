@@ -1,0 +1,29 @@
+<!-- <div *ngFor="let product of res.products">
+  <div class="card flex justify-content-center">
+    <p-card [header]="product.title">
+      <p class="m-0">{{ product.description }}</p>
+    </p-card>
+  </div>
+</div> -->
+<!-- <div>products</div> -->
+
+<ng-container *ngIf="response">
+  <div *ngFor="let product of response.products">
+    <div
+      class="card flex justify-content-center"
+      [routerLink]="['/products', product.id]"
+    >
+      <p-card [header]="product.title | titlecase">
+        <p>{{ product.description }}</p>
+        <p>Price: ${{ product.price }}</p>
+      </p-card>
+    </div>
+  </div>
+  <p-paginator
+    (onPageChange)="onPageChange($event)"
+    [rows]="pageSize"
+    [totalRecords]="response.total"
+    [rowsPerPageOptions]="[5, 10, 20, 30]"
+  />
+</ng-container>
+<!-- [first]="first || 0" -->

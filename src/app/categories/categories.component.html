@@ -1,0 +1,12 @@
+<ng-container *ngIf="categories">
+  <div *ngFor="let category of categories">
+    <div
+      class="card flex justify-content-center"
+      [routerLink]="['/categories', category]"
+    >
+      <p-card [header]="category | titlecase">
+        <!-- <p class="m-0">{{ category.description }}</p> -->
+      </p-card>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,13 @@
+<ng-container *ngIf="products">
+  <div *ngFor="let product of products">
+    <div
+      class="card flex justify-content-center"
+      [routerLink]="['/products', product.id]"
+    >
+      <p-card [header]="product.title | titlecase">
+        <p>{{ product.description }}</p>
+        <p>Price: ${{ product.price }}</p>
+      </p-card>
+    </div>
+  </div>
+</ng-container>

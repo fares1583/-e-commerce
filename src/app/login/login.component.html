@@ -1,0 +1,13 @@
+<p-card header="Login">
+  <form>
+    <div>
+      <label for="username">Username</label>
+      <input type="text" pInputText id="username" name="username" [(ngModel)]="username" />
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <p-password [feedback]="false" id="password" name="password" [(ngModel)]="password" />
+    </div>
+    <p-button label="Login" (click)="login()" />
+  </form>
+</p-card>

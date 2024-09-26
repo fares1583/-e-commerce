@@ -1,0 +1,7 @@
+<ng-container *ngIf="productDetails">
+  <div class="card flex justify-content-center">
+    <p-card [header]="productDetails.title | titlecase">
+      <p class="m-0">{{ productDetails.description }}</p>
+    </p-card>
+  </div>
+</ng-container>
